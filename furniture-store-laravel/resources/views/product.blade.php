@@ -12,10 +12,10 @@
 
     <div class="flex gap-5">
         <div class="text-teal-500 border border-teal-500 rounded">
-            <a href="/product/{{ $product->id }}?curr=gbp" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">£</a><!--
-        --><a href="/product/{{ $product->id }}?curr=usd" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">$</a><!--
-        --><a href="/product/{{ $product->id }}?curr=eur" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">€</a><!--
-        --><a href="/product/{{ $product->id }}?curr=yen" class="px-2 py-1 hover:bg-teal-500 hover:text-slate-800">¥</a>
+            <a href="/product/{{ $product->id }}?currency=gbp" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">£</a><!--
+        --><a href="/product/{{ $product->id }}?currency=usd" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">$</a><!--
+        --><a href="/product/{{ $product->id }}?currency=eur" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">€</a><!--
+        --><a href="/product/{{ $product->id }}?currency=yen" class="px-2 py-1 hover:bg-teal-500 hover:text-slate-800">¥</a>
         </div>
 
         <div class="text-yellow-300 border border-yellow-300 rounded">
@@ -42,7 +42,7 @@
 @if (!is_null($product))
 <section class="container mx-auto md:w-2/3 border p-8 mt-5">
     <div class="flex justify-between items-start">
-        <h1 class="text-5xl">{{ $product->color }} - £{{ $product->price }}</h1>
+        <h1 class="text-5xl">{{ $product->color }} - {{ $prices[0] }}</h1>
         <span class="bg-teal-500 px-2 rounded">Stock: {{ $product->stock }}</span>
     </div>
     <h2 class="text-3xl mt-3">Dimensions</h2>
@@ -56,7 +56,7 @@
 <section class="container mx-auto md:w-2/3 border p-8 mt-10">
     <h1 class="text-3xl border-b pb-3 mb-3">Similar Product</h1>
     <div class="flex justify-between items-start">
-        <p class="text-2xl">£{{ $similarProduct->price }}</p>
+        <p class="text-2xl">{{ $prices[1] }}</p>
         <span class="bg-teal-500 px-2 rounded">Stock: {{ $similarProduct->stock }}</span>
     </div>
     <div class="flex justify-between items-start">
