@@ -23,16 +23,14 @@ class CurrencyCalculationService
         CurrencyCalculationService::YEN => '¥',
     ];
 
-    public static function convertCurrency(array $prices, string $currency): array
+    public static function convertCurrency(float $price, string $currency): string
     {
-            foreach($prices as $price) {
                 if ($price <= 0) {
                     throw new Exception('Dimension must be greater than 0');
                 }
 
-                $convertedPrices[] = CurrencyCalculationService::SYMBOLS[$currency] . number_format($price * CurrencyCalculationService::UNITS[$currency], 2);
+                $convertedPrice = CurrencyCalculationService::SYMBOLS[$currency] . number_format($price * CurrencyCalculationService::UNITS[$currency], 2);
 
-            }
-        return $convertedPrices;
+        return $convertedPrice;
     }
 }

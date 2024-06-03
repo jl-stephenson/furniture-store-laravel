@@ -9,8 +9,17 @@ use App\Services\MeasurementCalculationService;
 
 class ProductController extends Controller
 {
-    public function allProducts() {
+    public function allProducts(Request $request) {
         $products = Product::all();
+        $currency = CurrencyCalculationService::GBP;
+        if (!empty($request->currency) && array_key_exists($request->currency, CurrencyCalculationService::UNITS)) {
+            $currency = $request->currency;
+        }
+
+        foreach ($products as $product) {
+            $product->price = CurrencyCalculationService::convertCurrency($product->price, $currency);
+        }
+
         return view('products', ['products' => $products]);
     }
 
@@ -33,24 +42,29 @@ class ProductController extends Controller
         $dimensionsArr = MeasurementCalculationService::convertUnits($dimensionsArr, $unitOfMeasurement);
 
         $currency = CurrencyCalculationService::GBP;
-
-        if (is_null($similarProduct)) {
-            $prices = [$product->price];
-        } else {
-            $prices = [$product->price, $similarProduct->price];
-        }
-
         if (!empty($request->currency) && array_key_exists($request->currency, CurrencyCalculationService::UNITS)) {
             $currency = $request->currency;
         }
 
-        $prices = CurrencyCalculationService::convertCurrency($prices, $currency);
+        $product->price = CurrencyCalculationService::convertCurrency($product->price, $currency);
 
-        return view('product', ['product' => $product, 'similarProduct' => $similarProduct, 'dimensions' => $dimensionsArr, 'prices' => $prices]);
+        if (!is_null($similarProduct)) {
+            $similarProduct->price = CurrencyCalculationService::convertCurrency($similarProduct->price, $currency);
+        }
+
+        return view('product', ['product' => $product, 'similarProduct' => $similarProduct, 'dimensions' => $dimensionsArr]);
     }
 
     public function inStockProducts() {
         $products = Product::where('stock', '>', 0)->get();
+        $currency = CurrencyCalculationService::GBP;
+        if (!empty($request->currency) && array_key_exists($request->currency, CurrencyCalculationService::UNITS)) {
+            $currency = $request->currency;
+        }
+
+        foreach ($products as $product) {
+            $product->price = CurrencyCalculationService::convertCurrency($product->price, $currency);
+        }
         return view('products', ['products' => $products]);
     }
 

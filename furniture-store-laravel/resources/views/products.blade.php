@@ -7,8 +7,24 @@
 </head>
 <body>
 
-<nav class="bg-slate-800 py-2 px-5">
+<nav class="bg-slate-800 py-2 px-5 flex justify-between items-center">
     <span class="text-4xl text-white">Furniture Store</span>
+
+    <div class="flex gap-5">
+        <div class="text-teal-500 border border-teal-500 rounded">
+            <a href="/?currency=gbp" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">£</a><!--
+        --><a href="/?currency=usd" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">$</a><!--
+        --><a href="/?currency=eur" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">€</a><!--
+        --><a href="/?currency=yen" class="px-2 py-1 hover:bg-teal-500 hover:text-slate-800">¥</a>
+        </div>
+
+        <div class="text-yellow-300 border border-yellow-300 rounded">
+            <a href="/" class="border-r border-yellow-300 hover:bg-yellow-300 hover:text-slate-800 px-2 py-1">mm</a><!--
+            --><a href="/" class="border-r border-yellow-300 hover:bg-yellow-300 hover:text-slate-800 px-2 py-1">cm</a><!--
+            --><a href="/" class="border-r border-yellow-300 hover:bg-yellow-300 hover:text-slate-800 px-2 py-1">in</a><!--
+            --><a href="/" class="px-2 py-1 hover:bg-yellow-300 hover:text-slate-800">ft</a>
+        </div>
+    </div>
 </nav>
 
 <header class="container mx-auto md:w-2/3 md:mt-10 py-16 px-8 bg-slate-200 rounded">
@@ -28,7 +44,7 @@
    @foreach ($products as $product)
     <div class="bg-slate-100 p-5">
         <div class="flex justify-between items-center">
-            <h3 class="text-2xl">Price: £{{ $product->price }}</h3>
+            <h3 class="text-2xl">Price: {{ $product->price }}</h3>
             <span class="bg-teal-500 text-2xl px-2 py-1 rounded">{{ $product->stock }}</span>
         </div>
         <p>Color: {{ $product->color }}</p>

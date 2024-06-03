@@ -42,7 +42,7 @@
 @if (!is_null($product))
 <section class="container mx-auto md:w-2/3 border p-8 mt-5">
     <div class="flex justify-between items-start">
-        <h1 class="text-5xl">{{ $product->color }} - {{ $prices[0] }}</h1>
+        <h1 class="text-5xl">{{ $product->color }} - {{ $product->price }}</h1>
         <span class="bg-teal-500 px-2 rounded">Stock: {{ $product->stock }}</span>
     </div>
     <h2 class="text-3xl mt-3">Dimensions</h2>
@@ -56,7 +56,7 @@
 <section class="container mx-auto md:w-2/3 border p-8 mt-10">
     <h1 class="text-3xl border-b pb-3 mb-3">Similar Product</h1>
     <div class="flex justify-between items-start">
-        <p class="text-2xl">{{ $prices[1] }}</p>
+        <p class="text-2xl">{{ $similarProduct->price }}</p>
         <span class="bg-teal-500 px-2 rounded">Stock: {{ $similarProduct->stock }}</span>
     </div>
     <div class="flex justify-between items-start">
