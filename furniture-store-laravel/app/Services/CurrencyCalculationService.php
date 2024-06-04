@@ -26,7 +26,7 @@ class CurrencyCalculationService
     public static function convertCurrency(float $price, string $currency): string
     {
                 if ($price <= 0) {
-                    throw new Exception('Dimension must be greater than 0');
+                    throw new Exception('Price must be greater than 0');
                 }
 
                 $convertedPrice = CurrencyCalculationService::SYMBOLS[$currency] . number_format($price * CurrencyCalculationService::UNITS[$currency], 2);

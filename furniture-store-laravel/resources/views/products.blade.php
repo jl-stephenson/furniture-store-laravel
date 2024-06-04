@@ -12,17 +12,17 @@
 
     <div class="flex gap-5">
         <div class="text-teal-500 border border-teal-500 rounded">
-            <a href="/?currency=gbp" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">£</a><!--
-        --><a href="/?currency=usd" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">$</a><!--
-        --><a href="/?currency=eur" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">€</a><!--
-        --><a href="/?currency=yen" class="px-2 py-1 hover:bg-teal-500 hover:text-slate-800">¥</a>
+            <a href="/products/?currency=gbp" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">£</a><!--
+        --><a href="/products/?currency=usd" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">$</a><!--
+        --><a href="/products/?currency=eur" class="border-r border-teal-500 hover:bg-teal-500 hover:text-slate-800 px-2 py-1">€</a><!--
+        --><a href="/products/?currency=yen" class="px-2 py-1 hover:bg-teal-500 hover:text-slate-800">¥</a>
         </div>
 
         <div class="text-yellow-300 border border-yellow-300 rounded">
-            <a href="/" class="border-r border-yellow-300 hover:bg-yellow-300 hover:text-slate-800 px-2 py-1">mm</a><!--
-            --><a href="/" class="border-r border-yellow-300 hover:bg-yellow-300 hover:text-slate-800 px-2 py-1">cm</a><!--
-            --><a href="/" class="border-r border-yellow-300 hover:bg-yellow-300 hover:text-slate-800 px-2 py-1">in</a><!--
-            --><a href="/" class="px-2 py-1 hover:bg-yellow-300 hover:text-slate-800">ft</a>
+            <a href="/products" class="border-r border-yellow-300 hover:bg-yellow-300 hover:text-slate-800 px-2 py-1">mm</a><!--
+            --><a href="/products" class="border-r border-yellow-300 hover:bg-yellow-300 hover:text-slate-800 px-2 py-1">cm</a><!--
+            --><a href="/products" class="border-r border-yellow-300 hover:bg-yellow-300 hover:text-slate-800 px-2 py-1">in</a><!--
+            --><a href="/products" class="px-2 py-1 hover:bg-yellow-300 hover:text-slate-800">ft</a>
         </div>
     </div>
 </nav>

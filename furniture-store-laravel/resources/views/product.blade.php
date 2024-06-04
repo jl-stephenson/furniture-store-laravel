@@ -37,7 +37,7 @@
 
 
 <div class="container mx-auto md:w-2/3 mt-5">
-    <a href="/" class="text-blue-500">Back</a>
+    <a href="/products" class="text-blue-500">Back</a>
 </div>
 @if (!is_null($product))
 <section class="container mx-auto md:w-2/3 border p-8 mt-5">
@@ -49,6 +49,10 @@
     <p class="mt-2">Width: {{ $dimensions[0] }}</p>
     <p class="mt-3">Height: {{ $dimensions[1] }}</p>
     <p class="mt-3">Depth: {{ $dimensions[2] }}</p>
+    <h2>Materials:</h2>
+    @foreach ($product->tags as $tag)
+        <p>{{ $tag->material }}</p>
+    @endforeach
 </section>
 @endif
 
